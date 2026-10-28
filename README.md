@@ -17,7 +17,7 @@ Das Webflow-Formular für die Anfrage braucht die ID `jfo-anfrage`.
 
 ## Update-Ablauf
 
-1. Datei in `dist/` anpassen (z. B. Preise in `rechner.js`, Bereich `packages` bzw. `extraHourPrice` usw.)
+1. Datei in `dist/` anpassen. Preise, Kategorien und Angebote stehen oben in `rechner.js` im Block `KONFIGURATION` (`categories`, `packages`, `extraHourPrice`, `kmPrice` usw.)
 2. Committen
 3. Neues Release mit nächster Version erstellen, z. B. `v1.0.1`
 4. Im Webflow-Embed die Versionsnummer anpassen (`@1.0.0` → `@1.0.1`) und publishen
@@ -27,3 +27,5 @@ Rollback: im Embed einfach wieder die vorherige Version eintragen.
 ## Versionen
 
 - `1.0.0` – Erstversion
+- `1.0.1` – CSS-Korrekturen (Formular, PDF-Bereich)
+- `1.1.0` – Kategorien (Hochzeit & Verlobung, Shootings, Business & Event); Zusatzstunde CHF 450; Zweitfotograf entfernt; CHF 0.65/km
