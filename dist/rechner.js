@@ -32,7 +32,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
 
     shortNoticeDays: 14,       // Hinweis "bitte anrufen" (nur Kategorien mit shortNotice)
     maxTotalHours: 12,
-    extraHourPrice: 450,       // CHF pro zusätzliche Stunde (Hochzeit)
+    extraHourPrice: 350,       // CHF pro zusätzliche Stunde (Hochzeit)
     extraHoursMax: 10,
     dronePrice: 100,           // CHF pauschal (Hochzeit)
     freeKm: 20,                // km hin und zurück gratis
@@ -104,7 +104,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       // Shootings
       { id: "portrait", category: "shooting", name: "Portrait", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
-      { id: "bewerbung", category: "shooting", name: "Bewerbungsfotos", price: 280, duration: "Mind. 2 Bilder",
+      { id: "bewerbung", category: "shooting", name: "Bewerbung", price: 280, duration: "Mind. 2 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 2 Bilder"] },
       { id: "paar", category: "shooting", name: "Paar", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
