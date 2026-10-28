@@ -29,3 +29,4 @@ Rollback: im Embed einfach wieder die vorherige Version eintragen.
 - `1.0.0` – Erstversion
 - `1.0.1` – CSS-Korrekturen (Formular, PDF-Bereich)
 - `1.1.0` – Kategorien (Hochzeit & Verlobung, Shootings, Business & Event); Zusatzstunde CHF 450; Zweitfotograf entfernt; CHF 0.65/km
+- `1.2.0` – Überschriften und Fliesstexte nutzen Webflow-Klassen (`classes` in der Konfiguration)
