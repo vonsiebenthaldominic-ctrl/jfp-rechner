@@ -30,9 +30,12 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     originLabel: "Reichenbach",
     regionCodes: ["ch", "li"],
 
+    // Webflow-Klassen für Überschriften und Fliesstext (leer lassen = Rechner-Styling)
+    classes: { h2: "h2-heading", h3: "", p: "paragraph" },
+
     shortNoticeDays: 14,       // Hinweis "bitte anrufen" (nur Kategorien mit shortNotice)
     maxTotalHours: 12,
-    extraHourPrice: 350,       // CHF pro zusätzliche Stunde (Hochzeit)
+    extraHourPrice: 450,       // CHF pro zusätzliche Stunde (Hochzeit)
     extraHoursMax: 10,
     dronePrice: 100,           // CHF pauschal (Hochzeit)
     freeKm: 20,                // km hin und zurück gratis
@@ -104,7 +107,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       // Shootings
       { id: "portrait", category: "shooting", name: "Portrait", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
-      { id: "bewerbung", category: "shooting", name: "Bewerbung", price: 280, duration: "Mind. 2 Bilder",
+      { id: "bewerbung", category: "shooting", name: "Bewerbungsfotos", price: 280, duration: "Mind. 2 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 2 Bilder"] },
       { id: "paar", category: "shooting", name: "Paar", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
@@ -130,8 +133,8 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
    * ------------------------------------------------------------------ */
   function head(title, sub, key) {
     return '<header class="jfo-step__head"><span class="jfo-step__num" aria-hidden="true"></span><div>' +
-      '<h2 class="jfo-h2"' + (key ? ' data-t="' + key + 'Title"' : "") + ">" + title + "</h2>" +
-      '<p class="jfo-step__sub"' + (key ? ' data-t="' + key + 'Sub"' : "") + ">" + sub + "</p></div></header>";
+      '<h2 class="jfo-h2' + c("h2") + '"' + (key ? ' data-t="' + key + 'Title"' : "") + ">" + title + "</h2>" +
+      '<p class="jfo-step__sub' + c("p") + '"' + (key ? ' data-t="' + key + 'Sub"' : "") + ">" + sub + "</p></div></header>";
   }
 
   function stepper(id, label) {
@@ -168,7 +171,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       '<div class="jfo-packages jfo-cats" role="radiogroup" aria-labelledby="jfo-cat-label">' +
         cfg.categories.map(catCard).join("") + "</div>" +
       '<p class="jfo-error" data-error="cat" hidden>Bitte wählt eine Kategorie.</p>' +
-      '<div class="jfo-soon" id="jfo-contact" hidden><p data-contact-text></p>' +
+      '<div class="jfo-soon" id="jfo-contact" hidden><p class="' + c("p", true) + '" data-contact-text></p>' +
         '<a class="btn-primary" href="tel:' + esc(cfg.phone) + '">Jordan anrufen · ' + esc(cfg.phoneDisplay) + "</a></div>" +
       "</div></section>" +
 
@@ -178,7 +181,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       '<div class="jfo-step__body"><label class="jfo-field"><span class="jfo-label" data-t="dateLabel"></span>' +
       '<input class="jfo-input" type="date" id="jfo-date" min="' + todayIso() + '"></label>' +
       '<p class="jfo-error" data-error="date" hidden>Bitte wählt ein Datum.</p>' +
-      '<div class="jfo-soon" id="jfo-soon" hidden><p>Eure Hochzeit ist schon sehr bald. Ruft mich gerne direkt an, damit wir schnellstmöglich sprechen können.</p>' +
+      '<div class="jfo-soon" id="jfo-soon" hidden><p class="' + c("p", true) + '">Eure Hochzeit ist schon sehr bald. Ruft mich gerne direkt an, damit wir schnellstmöglich sprechen können.</p>' +
         '<a class="btn-primary" href="tel:' + esc(cfg.phone) + '">Jordan anrufen · ' + esc(cfg.phoneDisplay) + "</a></div>" +
       "</div></section>" +
 
@@ -193,11 +196,11 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     '<section class="jfo-step" data-step="extras" hidden>' +
       head("Für alle, die das Maximum <em>aus dem grossen Tag holen wollen</em>", "Optional: mehr Zeit oder Bilder aus der Luft.") +
       '<div class="jfo-step__body jfo-extras">' +
-        '<div class="jfo-extra" data-extra="extra"><div class="jfo-extra__text"><h3 class="jfo-h3">Zusätzliche Stunden</h3>' +
-          "<p>Mehr Zeit für Getting Ready, Apéro oder Party. " + money(cfg.extraHourPrice) + " pro Stunde.</p>" +
+        '<div class="jfo-extra" data-extra="extra"><div class="jfo-extra__text"><h3 class="jfo-h3' + c("h3") + '">Zusätzliche Stunden</h3>' +
+          '<p class="' + c("p", true) + '">' + "Mehr Zeit für Getting Ready, Apéro oder Party. " + money(cfg.extraHourPrice) + " pro Stunde.</p>" +
           '<p class="jfo-hint" data-hint="extra"></p></div>' + stepper("extra", "Eine Stunde") + "</div>" +
-        '<div class="jfo-extra" data-extra="drone"><div class="jfo-extra__text"><h3 class="jfo-h3">Die Linse in der Luft</h3>' +
-          "<p>Fotografische Begleitung mit der Drohne, sofern sie an eurer Location erlaubt ist. Pauschal " + money(cfg.dronePrice) + ".</p></div>" +
+        '<div class="jfo-extra" data-extra="drone"><div class="jfo-extra__text"><h3 class="jfo-h3' + c("h3") + '">Die Linse in der Luft</h3>' +
+          '<p class="' + c("p", true) + '">' + "Fotografische Begleitung mit der Drohne, sofern sie an eurer Location erlaubt ist. Pauschal " + money(cfg.dronePrice) + ".</p></div>" +
           '<label class="jfo-check"><input class="jfo-sr" type="checkbox" id="jfo-drone"><span class="jfo-check__box" aria-hidden="true"></span><span>Ja, mit Drohne</span></label></div>' +
       "</div></section>" +
 
@@ -219,12 +222,12 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
 
     // Ergebnis
     '<section class="jfo-result" id="jfo-result" tabindex="-1" hidden>' +
-      '<div class="jfo-result__head"><p class="jfo-eyebrow">Euer Richtpreis</p><h2 class="jfo-h2" id="jfo-result-title"></h2></div>' +
-      '<div class="jfo-stale" id="jfo-stale" hidden><p>Ihr habt etwas angepasst. Berechnet den Richtpreis neu, bevor ihr die Anfrage sendet.</p>' +
+      '<div class="jfo-result__head"><p class="jfo-eyebrow">Euer Richtpreis</p><h2 class="jfo-h2' + c("h2") + '" id="jfo-result-title"></h2></div>' +
+      '<div class="jfo-stale" id="jfo-stale" hidden><p class="' + c("p", true) + '">Ihr habt etwas angepasst. Berechnet den Richtpreis neu, bevor ihr die Anfrage sendet.</p>' +
         '<button type="button" class="btn-secondary" data-recalc>Neu berechnen</button></div>' +
       '<div id="jfo-result-body"></div>' +
-      '<div class="jfo-form-slot" id="jfo-form-slot"><h3 class="jfo-h3">Unverbindliches Angebot anfragen</h3>' +
-        "<p>Schickt mir eure Konfiguration. Ich melde mich in der Regel innerhalb von 24 Stunden mit einem persönlichen Angebot.</p></div>" +
+      '<div class="jfo-form-slot" id="jfo-form-slot"><h3 class="jfo-h3' + c("h3") + '">Unverbindliches Angebot anfragen</h3>' +
+        '<p class="' + c("p", true) + '">' + "Schickt mir eure Konfiguration. Ich melde mich in der Regel innerhalb von 24 Stunden mit einem persönlichen Angebot.</p></div>" +
     "</section></div>";
 
   /* ------------------------------------------------------------------
@@ -540,9 +543,9 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
   function renderRoute(mode) {
     var box = $("#jfo-route");
     box.hidden = false;
-    if (mode === "loading") { box.innerHTML = '<p class="jfo-route__msg">Strecke wird berechnet …</p>'; return; }
+    if (mode === "loading") { box.innerHTML = '<p class="jfo-route__msg' + c("p") + '">Strecke wird berechnet …</p>'; return; }
     if (mode === "error") {
-      box.innerHTML = '<p class="jfo-route__msg">Die Strecke liess sich gerade nicht berechnen. Ich ergänze die Fahrtkosten in eurem Angebot.</p>';
+      box.innerHTML = '<p class="jfo-route__msg' + c("p") + '">Die Strecke liess sich gerade nicht berechnen. Ich ergänze die Fahrtkosten in eurem Angebot.</p>';
       return;
     }
     var t = travel();
@@ -615,8 +618,8 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
         return '<tr><th scope="row">' + esc(r.label) + "<span>" + esc(r.detail) + "</span></th><td>" + priceText(r) + "</td></tr>";
       }).join("") + "</tbody>" +
       '<tfoot><tr><th scope="row">Richtpreis' + (open ? "<span>zuzüglich Fahrtkosten</span>" : "") + "</th><td>" + money(total) + "</td></tr></tfoot></table>" +
-      '<p class="jfo-note">' + esc(cat.text.note) + " Ich bin nicht mehrwertsteuerpflichtig, es kommt keine MWST dazu.</p>" +
-      '<div class="jfo-incl"><h3 class="jfo-h3">' + esc(cat.text.inclPrefix + p.name) + " inbegriffen</h3><ul>" +
+      '<p class="jfo-note' + c("p") + '">' + esc(cat.text.note) + " Ich bin nicht mehrwertsteuerpflichtig, es kommt keine MWST dazu.</p>" +
+      '<div class="jfo-incl"><h3 class="jfo-h3' + c("h3") + '">' + esc(cat.text.inclPrefix + p.name) + " inbegriffen</h3><ul>" +
         includesList(p).map(function (i) { return "<li>" + esc(i) + "</li>"; }).join("") + "</ul></div>" +
       '<div class="jfo-pdf"><button type="button" class="btn-primary" data-pdf>Richtpreis als PDF herunterladen</button>' +
         '<p class="jfo-hint" data-pdf-msg aria-live="polite"></p></div>';
@@ -868,6 +871,12 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
    * Helfer
    * ------------------------------------------------------------------ */
   function $(sel) { return root.querySelector(sel); }
+
+  // Webflow-Klasse: c("p") liefert " paragraph", c("p", true) ohne Leerzeichen
+  function c(key, bare) {
+    var name = (cfg.classes && cfg.classes[key]) || "";
+    return name ? (bare ? name : " " + name) : "";
+  }
 
   function round05(v) { return Math.round(v * 20) / 20; }
 
