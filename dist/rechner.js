@@ -31,7 +31,8 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     regionCodes: ["ch", "li"],
 
     // Webflow-Klassen für Überschriften und Fliesstext (leer lassen = Rechner-Styling)
-    classes: { h2: "h2-heading", h3: "", p: "paragraph" },
+    // h2 = Hauptüberschriften, h3 = Unterüberschriften, tile = Namen in Kacheln, p = Fliesstext
+    classes: { h2: "h4-heading", h3: "h5-heading", tile: "h5-heading", p: "paragraph" },
 
     shortNoticeDays: 14,       // Hinweis "bitte anrufen" (nur Kategorien mit shortNotice)
     maxTotalHours: 12,
@@ -144,11 +145,11 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       '<button type="button" class="jfo-stepper__btn" data-inc aria-label="' + label + ' hinzufügen">+</button></div>';
   }
 
-  function catCard(c) {
-    var line = c.priceLine || ("ab " + money(minPrice(c.id)));
-    return '<label class="jfo-pkg jfo-cat"><input class="jfo-sr" type="radio" name="jfo-cat" value="' + c.id + '">' +
+  function catCard(cat) {
+    var line = cat.priceLine || ("ab " + money(minPrice(cat.id)));
+    return '<label class="jfo-pkg jfo-cat"><input class="jfo-sr" type="radio" name="jfo-cat" value="' + cat.id + '">' +
       '<span class="jfo-pkg__mark" aria-hidden="true"></span>' +
-      '<span class="jfo-pkg__name">' + esc(c.name) + "</span>" +
+      '<span class="jfo-pkg__name' + c("tile") + '">' + esc(cat.name) + "</span>" +
       '<span class="jfo-pkg__price">' + esc(line) + "</span></label>";
   }
 
@@ -157,7 +158,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       (state.pkg === p.id ? " checked" : "") + ">" +
       '<span class="jfo-pkg__mark" aria-hidden="true"></span>' +
       '<span class="jfo-pkg__dur">' + esc(p.duration || "") + "</span>" +
-      '<span class="jfo-pkg__name">' + esc(p.name) + "</span>" +
+      '<span class="jfo-pkg__name' + c("tile") + '">' + esc(p.name) + "</span>" +
       '<span class="jfo-pkg__price">' + money(p.price) + "</span></label>";
   }
 
