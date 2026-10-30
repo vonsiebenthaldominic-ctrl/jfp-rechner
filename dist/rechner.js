@@ -23,8 +23,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     pdfFonts: {
       body: "https://fonts.gstatic.com/s/jost/v20/92zPtBhPNqw79Ij1E865zBUv7mz9JQVG.ttf",
       bodyMedium: "https://fonts.gstatic.com/s/jost/v20/92zPtBhPNqw79Ij1E865zBUv7myRJQVG.ttf",
-      display: "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_qE6GnM.ttf",
-      displayItalic: "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3smX5slCNuHLi8bLeY9MK7whWMhyjYrGFEsdtdc62E6zd5rDDOjw.ttf"
+      display: "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3umX5slCNuHLi8bLeY9MK7whWMhyjypVO7abI26QOD_qE6GnM.ttf"
     },
     origin: "Untere Steinweide, 3713 Reichenbach im Kandertal",
     originLabel: "Reichenbach",
@@ -50,14 +49,14 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
         extras: true,
         shortNotice: true,
         text: {
-          dateTitle: "Wann ist der <em>grosse Tag?</em>",
+          dateTitle: "Wann ist der grosse Tag?",
           dateSub: "Wählt euer Hochzeitsdatum.",
           dateLabel: "Hochzeitsdatum *",
-          offerTitle: "Wie lange <em>bin ich vor Ort?</em>",
+          offerTitle: "Wie lange bin ich vor Ort?",
           offerSub: "Wählt die Begleitung, die zu eurem Tag passt.",
           offerLabel: "Gewünschte Begleitung *",
-          locTitle: "Wo findet <em>die Feier statt?</em>",
-          resultTitle: ["Eure Hochzeit, ", "auf einen Blick"],
+          locTitle: "Wo findet die Feier statt?",
+          resultTitle: "Eure Hochzeit auf einen Blick",
           rowPrefix: "Paket ",
           inclPrefix: "Im Paket ",
           note: "Das ist ein unverbindlicher Richtpreis. Das definitive Angebot erhaltet ihr nach unserem Kennenlerngespräch.",
@@ -71,14 +70,14 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
         extras: false,
         shortNotice: false,
         text: {
-          dateTitle: "Wann soll <em>das Shooting stattfinden?</em>",
+          dateTitle: "Wann soll das Shooting stattfinden?",
           dateSub: "Wählt euer Wunschdatum.",
           dateLabel: "Wunschdatum *",
-          offerTitle: "Welches <em>Shooting wünscht ihr?</em>",
+          offerTitle: "Welches Shooting wünscht ihr?",
           offerSub: "Alle Shootings inklusive Nachbearbeitung.",
           offerLabel: "Gewünschtes Shooting *",
-          locTitle: "Wo findet <em>das Shooting statt?</em>",
-          resultTitle: ["Euer Shooting, ", "auf einen Blick"],
+          locTitle: "Wo findet das Shooting statt?",
+          resultTitle: "Euer Shooting auf einen Blick",
           rowPrefix: "Shooting ",
           inclPrefix: "Im Shooting ",
           note: "Das ist ein unverbindlicher Richtpreis. Das definitive Angebot erhaltet ihr nach unserer Absprache.",
@@ -108,8 +107,6 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
       // Shootings
       { id: "portrait", category: "shooting", name: "Portrait", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
-      { id: "bewerbung", category: "shooting", name: "Bewerbungsfotos", price: 280, duration: "Mind. 2 Bilder",
-        includes: ["Nachbearbeitung", "Mindestens 2 Bilder"] },
       { id: "paar", category: "shooting", name: "Paar", price: 450, duration: "Mind. 20 Bilder",
         includes: ["Nachbearbeitung", "Mindestens 20 Bilder"] },
       { id: "baby", category: "shooting", name: "Baby", price: 250, duration: "Mind. 10 Bilder",
@@ -167,7 +164,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
 
     // Kategorie
     '<section class="jfo-step" data-step="cat">' +
-      head("Was darf ich <em>für euch fotografieren?</em>", "Wählt die Art eures Anlasses.") +
+      head("Was darf ich für euch fotografieren?", "Wählt die Art eures Anlasses.") +
       '<div class="jfo-step__body"><p class="jfo-label" id="jfo-cat-label">Kategorie *</p>' +
       '<div class="jfo-packages jfo-cats" role="radiogroup" aria-labelledby="jfo-cat-label">' +
         cfg.categories.map(catCard).join("") + "</div>" +
@@ -195,7 +192,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
 
     // Extras (nur Hochzeit)
     '<section class="jfo-step" data-step="extras" hidden>' +
-      head("Für alle, die das Maximum <em>aus dem grossen Tag holen wollen</em>", "Optional: mehr Zeit oder Bilder aus der Luft.") +
+      head("Für alle, die das Maximum aus dem grossen Tag holen wollen", "Optional: mehr Zeit oder Bilder aus der Luft.") +
       '<div class="jfo-step__body jfo-extras">' +
         '<div class="jfo-extra" data-extra="extra"><div class="jfo-extra__text"><h3 class="jfo-h3' + c("h3") + '">Zusätzliche Stunden</h3>' +
           '<p class="' + c("p", true) + '">' + "Mehr Zeit für Getting Ready, Apéro oder Party. " + money(cfg.extraHourPrice) + " pro Stunde.</p>" +
@@ -223,7 +220,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
 
     // Ergebnis
     '<section class="jfo-result" id="jfo-result" tabindex="-1" hidden>' +
-      '<div class="jfo-result__head"><p class="jfo-eyebrow">Euer Richtpreis</p><h2 class="jfo-h2' + c("h2") + '" id="jfo-result-title"></h2></div>' +
+      '<div class="jfo-result__head"><h2 class="jfo-h2' + c("h2") + '" id="jfo-result-title"></h2></div>' +
       '<div class="jfo-stale" id="jfo-stale" hidden><p class="' + c("p", true) + '">Ihr habt etwas angepasst. Berechnet den Richtpreis neu, bevor ihr die Anfrage sendet.</p>' +
         '<button type="button" class="btn-secondary" data-recalc>Neu berechnen</button></div>' +
       '<div id="jfo-result-body"></div>' +
@@ -611,7 +608,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     var open = rows.some(function (r) { return r.price === null; });
     var where = state.place ? state.place.name : state.locText;
 
-    $("#jfo-result-title").innerHTML = esc(cat.text.resultTitle[0]) + "<em>" + esc(cat.text.resultTitle[1]) + "</em>";
+    $("#jfo-result-title").textContent = cat.text.resultTitle;
 
     $("#jfo-result-body").innerHTML =
       '<p class="jfo-result__date">' + esc(longDate(state.date)) + (where ? " · " + esc(where) : "") + "</p>" +
@@ -766,7 +763,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     var doc = new window.jspdf.jsPDF({ unit: "mm", format: "a4" });
     var fonts = assets.fonts, custom = !!fonts;
     if (custom) {
-      [["body", "JostLight"], ["bodyMedium", "JostMedium"], ["display", "Cormorant"], ["displayItalic", "CormorantItalic"]].forEach(function (f) {
+      [["body", "JostLight"], ["bodyMedium", "JostMedium"], ["display", "Cormorant"]].forEach(function (f) {
         doc.addFileToVFS(f[1] + ".ttf", fonts[f[0]]);
         doc.addFont(f[1] + ".ttf", f[1], "normal");
       });
@@ -774,8 +771,7 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     var F = {
       body: custom ? ["JostLight", "normal"] : ["helvetica", "normal"],
       medium: custom ? ["JostMedium", "normal"] : ["helvetica", "bold"],
-      display: custom ? ["Cormorant", "normal"] : ["times", "normal"],
-      italic: custom ? ["CormorantItalic", "normal"] : ["times", "italic"]
+      display: custom ? ["Cormorant", "normal"] : ["times", "normal"]
     };
     var INK = [28, 25, 22], UMBER = [110, 91, 74], OAT = [217, 204, 188], CLAY = [168, 105, 74];
     var L = 20, R = 190, W = R - L;
@@ -809,10 +805,8 @@ window.JFO_CONFIG=Object.assign({logo:"data:image/png;base64,iVBORw0KGgoAAAANSUh
     spaced("RICHTPREIS VOM " + new Date().toLocaleDateString("de-CH", { day: "numeric", month: "long", year: "numeric" }).toUpperCase(), L, y, 0.5);
 
     y += 13;
-    var t1 = calc.cat.text.resultTitle[0], t2 = calc.cat.text.resultTitle[1];
-    font(F.display, 30, INK); doc.text(txt(t1), L, y);
-    var off = doc.getTextWidth(txt(t1));
-    font(F.italic, 30, INK); doc.text(txt(t2), L + off, y);
+    font(F.display, 30, INK);
+    doc.text(txt(calc.cat.text.resultTitle), L, y);
 
     y += 9;
     font(F.body, 10.5, UMBER);
