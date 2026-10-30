@@ -31,3 +31,4 @@ Rollback: im Embed einfach wieder die vorherige Version eintragen.
 - `1.1.0` – Kategorien (Hochzeit & Verlobung, Shootings, Business & Event); Zusatzstunde CHF 450; Zweitfotograf entfernt; CHF 0.65/km
 - `1.2.0` – Überschriften und Fliesstexte nutzen Webflow-Klassen (`classes` in der Konfiguration)
 - `1.3.0` – Kleinere Überschriften: Hauptüberschriften `h4-heading`, Unterüberschriften und Kachelnamen `h5-heading`
+- `1.4.0` – Bewerbungsfotos entfernt; «Euer Richtpreis» über dem Ergebnis entfernt; keine Kursivschrift mehr (Website und PDF)
